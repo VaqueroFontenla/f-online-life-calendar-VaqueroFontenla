@@ -8,7 +8,7 @@ import './Home.css';
 class Home extends Component {
     render() {
         return (
-            <div>
+            <div className="calendar">
                 <Link to="/edition" className="buttonLink">+</Link>
                 <Calendar
                 />
