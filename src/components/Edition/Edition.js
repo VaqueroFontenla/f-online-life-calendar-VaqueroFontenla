@@ -6,7 +6,7 @@ class Edition extends Component {
     render() {
         return (
           <div className="edition">
-            <form>
+            <form className="form">
               <label htmlFor="date"
                      name="date"
                      className="label"
@@ -16,6 +16,7 @@ class Edition extends Component {
               <input id="date"
                      type="date"
                      name="date"/>
+                   <div className="status">
               <label name="status"
                      className="label"
                       >
@@ -44,6 +45,7 @@ class Edition extends Component {
                        name="sad"
                        value=":("
                        />
+                </div>
                 <label
                            htmlFor="message"
                            name="message"
