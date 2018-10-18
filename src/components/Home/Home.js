@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Calendar from './Calendar.js';
+import Calendar from '../Calendar/Calendar.js';
 import './Home.css';
 
 
