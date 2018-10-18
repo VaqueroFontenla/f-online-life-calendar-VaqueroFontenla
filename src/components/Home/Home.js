@@ -7,10 +7,11 @@ import './Home.css';
 
 class Home extends Component {
     render() {
+      const {status}=this.props;
         return (
             <div className="calendar">
                 <Link to="/edition" className="buttonLink">+</Link>
-                <Calendar
+                <Calendar status={status}
                 />
             </div>
         );

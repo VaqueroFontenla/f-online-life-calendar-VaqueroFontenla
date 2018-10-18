@@ -26,7 +26,7 @@ class Edition extends Component {
                      name="happy"
                      className="label"
                      >
-                     <i class="fas fa-smile"></i>
+                     <i className="fas fa-smile"></i>
                </label>
                <input id="happy"
                       type="radio"
@@ -38,7 +38,7 @@ class Edition extends Component {
                       name="sad"
                       className="label"
                       >
-                      <i class="fas fa-sad-tear"></i>
+                      <i className="fas fa-sad-tear"></i>
                 </label>
                 <input id="sad"
                        type="radio"
