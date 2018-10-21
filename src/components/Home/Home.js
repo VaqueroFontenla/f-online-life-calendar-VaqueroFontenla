@@ -11,7 +11,10 @@ class Home extends Component {
         return (
             <div className="calendar">
                 <Link to="/edition" className="buttonLink">+</Link>
-                <Calendar status={status}
+                <Calendar calendarSmile
+                          status
+                          data
+                          message={this.props}
                 />
             </div>
         );

@@ -4,6 +4,12 @@ import './Edition.css';
 
 class Edition extends Component {
     render() {
+      const {
+              status,
+              data,
+              message,
+              handleChange,
+              onSubmitHandler} = this.props;
         return (
           <div className="edition">
             <form className="form">
@@ -15,8 +21,9 @@ class Edition extends Component {
               </label>
               <input id="date"
                      type="date"
-                     name="date"/>
-                   <div className="status">
+                     name="date"
+                     onChange={ handleChange }/>
+              <div className="status">
               <label name="status"
                      className="label"
                       >
@@ -32,6 +39,7 @@ class Edition extends Component {
                       type="radio"
                       name="happy"
                       value=":)"
+                      onChange={ handleChange }
                       checked
                       />
                     <label htmlFor="sad"
@@ -44,6 +52,7 @@ class Edition extends Component {
                        type="radio"
                        name="sad"
                        value=":("
+                       onChange={ handleChange }
                        />
                 </div>
                 <label
@@ -53,7 +62,6 @@ class Edition extends Component {
                        >
                            Mensaje
                 </label>
-
                <input
                    id="message"
                    type="text"
@@ -63,6 +71,7 @@ class Edition extends Component {
                <input type="submit"
                       className="button button-yes"
                       value="Aceptar"
+                      onClick={ onSubmitHandler }
                 />
 
               <input type="submit"

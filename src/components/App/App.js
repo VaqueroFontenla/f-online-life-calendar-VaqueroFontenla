@@ -9,11 +9,44 @@ class App extends Component {
     super(props);
 
     this.state = {
-      status: '',
-      date: '',
-      message: '',
+      calendarSmile: [],
+      status: 'bad',
+      date: 'hoy',
+      message: null,
     }
+   this.handleChange=this.handleChange.bind(this);
+   this.onSubmitHandler=this.onSubmitHandler.bind(this);
   }
+
+  handleChange (e) {
+    this.setState ({
+      status: e.target.value,
+      date:  e.target.value,
+      message:  e.target.value
+    })
+    console.log(this.state.status)
+  }
+
+  onSubmitHandler () {
+    const {calendarSmile, status, date, message} = this.props;
+    this.setState({
+      calendarSmile: [ ...calendarData,
+        {
+          date: date,
+          status: status,
+          message: message
+        }
+      ]
+    })
+    console.log(this.state.status);
+  }
+
+  componentDidUpdate( prevProps, prevState ) {
+  if ( prevState.calendarData !== this.state.calendarData ) {
+    localStorage.setItem( 'Happiness Calendar', JSON.stringify( this.state.calendarData ));
+  }
+}
+
   render() {
     return (
       <div className="App">
@@ -21,10 +54,19 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render = {
                 ()=>
-                <Home status={this.state.status} />
+                <Home calendarSmile
+                      status
+                      data
+                      message={this.state} />
             }
             />
-            <Route path='/edition' component={ Edition } />
+            <Route path='/edition'render = {
+                ()=>
+                <Edition status data message={this.state}
+                         onSubmitHandler={this.onSubmitHandler}
+                         handleChange  = { this.handleChange }
+                        />
+            } />
           </Switch>
         </main>
 
