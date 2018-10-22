@@ -77,7 +77,7 @@ class App extends Component {
             />
             <Route path='/edition'render = {
                 ()=>
-                <Edition
+                <Edition status = {this.state.status}
                          onSubmitHandler={this.onSubmitHandler}
                          handleChangeDate  = { this.handleChangeDate }
                          handleChangeStatus  = { this.handleChangeStatus }

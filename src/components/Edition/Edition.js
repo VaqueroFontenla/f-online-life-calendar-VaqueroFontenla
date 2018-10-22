@@ -8,7 +8,8 @@ class Edition extends Component {
               handleChangeDate,
               handleChangeStatus,
               handleChangeMessage,
-              onSubmitHandler} = this.props;
+              onSubmitHandler,
+              status} = this.props;
               console.log(this.props)
         return (
           <div className="edition">
@@ -54,6 +55,8 @@ class Edition extends Component {
                        onChange={ handleChangeStatus }
                        />
                 </div>
+                { status === ':)' &&
+                <div>
                 <label
                            htmlFor="message"
                            name="message"
@@ -61,6 +64,7 @@ class Edition extends Component {
                        >
                            Mensaje
                 </label>
+
                <input
                    id="message"
                    type="text"
@@ -68,7 +72,9 @@ class Edition extends Component {
                    placeholder="¿Por qué es un buen día?"
                    onChange={ handleChangeMessage }
                />
-             
+             </div>
+           }
+
              <Link to="/">
              <input type="submit"
                       className="button button-yes"
