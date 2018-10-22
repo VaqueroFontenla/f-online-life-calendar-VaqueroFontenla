@@ -4,22 +4,22 @@ import './Calendar.css';
 
 class Calendar extends Component {
     render() {
-      // const {calendarSmile,
-      //       status,
-      //       data,
-      //       message}=this.props;
+      const {calendarSmile}=this.props;
+        console.log(calendarSmile)
 
         return (
-          <div></div>
-            // <ul className='days__face-container'>
-            //     {
-            //       calendarSmile.map(smileElement=> {
-            //         <DayList status
-            //                  data
-            //                  message={this.props}/>
-            //       })
-            //     }
-            // <ul>
+          <div>
+            <ul className='days__face-container'>
+                { calendarSmile.map((smileElement,index)=>
+                    <DayList date={smileElement.inputdate}
+                             status={smileElement.inputstatus}
+                             message={smileElement.inputmessage}
+                             key= {index}
+                             />
+                  )
+                }
+            </ul>
+          </div>
 
          );
        }

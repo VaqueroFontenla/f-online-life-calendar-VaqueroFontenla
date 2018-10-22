@@ -7,14 +7,11 @@ import './Home.css';
 
 class Home extends Component {
     render() {
-      const {status}=this.props;
+      const {calendarSmile}=this.props;
         return (
             <div className="calendar">
                 <Link to="/edition" className="buttonLink">+</Link>
-                <Calendar calendarSmile
-                          status
-                          data
-                          message={this.props}
+                <Calendar calendarSmile={calendarSmile}
                 />
             </div>
         );

@@ -5,11 +5,11 @@ import './Edition.css';
 class Edition extends Component {
     render() {
       const {
-              status,
-              data,
-              message,
-              handleChange,
+              handleChangeDate,
+              handleChangeStatus,
+              handleChangeMessage,
               onSubmitHandler} = this.props;
+              console.log(this.props)
         return (
           <div className="edition">
             <form className="form">
@@ -22,7 +22,7 @@ class Edition extends Component {
               <input id="date"
                      type="date"
                      name="date"
-                     onChange={ handleChange }/>
+                     onChange={ handleChangeDate }/>
               <div className="status">
               <label name="status"
                      className="label"
@@ -39,8 +39,7 @@ class Edition extends Component {
                       type="radio"
                       name="happy"
                       value=":)"
-                      onChange={ handleChange }
-                      checked
+                      onChange={ handleChangeStatus }
                       />
                     <label htmlFor="sad"
                       name="sad"
@@ -52,7 +51,7 @@ class Edition extends Component {
                        type="radio"
                        name="sad"
                        value=":("
-                       onChange={ handleChange }
+                       onChange={ handleChangeStatus }
                        />
                 </div>
                 <label
@@ -67,6 +66,7 @@ class Edition extends Component {
                    type="text"
                    name="message"
                    placeholder="¿Por qué es un buen día?"
+                   onChange={ handleChangeMessage }
                />
                <input type="submit"
                       className="button button-yes"

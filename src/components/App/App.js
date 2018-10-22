@@ -10,40 +10,58 @@ class App extends Component {
 
     this.state = {
       calendarSmile: [],
-      status: 'bad',
-      date: 'hoy',
+      status: null,
+      date: null,
       message: null,
-    }
-   this.handleChange=this.handleChange.bind(this);
+    };
+
+   this.handleChangeDate=this.handleChangeDate.bind(this);
+   this.handleChangeStatus=this.handleChangeStatus.bind(this);
+   this.handleChangeMessage=this.handleChangeMessage.bind(this);
    this.onSubmitHandler=this.onSubmitHandler.bind(this);
   }
 
-  handleChange (e) {
+  componentDidMount() {
+    if (localStorage.getItem( 'Life Calendar' )) {
+      this.setState({
+        calendarSmile : JSON.parse(localStorage.getItem( 'Life Calendar' )),
+      }, ()=>console.log(this.state.calendarSmile))
+    }
+
+}
+
+   handleChangeDate(e) {
+   this.setState({ date: e.target.value }, ()=>console.log(this.state.date))
+   }
+
+  handleChangeStatus (e) {
     this.setState ({
       status: e.target.value,
-      date:  e.target.value,
+    })
+        console.log(this.state.status);
+  }
+  handleChangeMessage (e) {
+    this.setState ({
       message:  e.target.value
     })
-    console.log(this.state.status)
   }
 
-  onSubmitHandler () {
-    const {calendarSmile, status, date, message} = this.props;
-    this.setState({
-      calendarSmile: [ ...calendarData,
-        {
-          date: date,
-          status: status,
-          message: message
-        }
-      ]
+  onSubmitHandler (e) {
+    e.preventDefault();
+    const {calendarSmile,date,status, message}= this.state;
+    calendarSmile.push({
+      inputdate: date,
+      inputstatus: status,
+      inputmessage: message
     })
-    console.log(this.state.status);
+    this.setState({
+      calendarSmile: calendarSmile
+    }, ()=>console.log(calendarSmile))
   }
 
-  componentDidUpdate( prevProps, prevState ) {
-  if ( prevState.calendarData !== this.state.calendarData ) {
-    localStorage.setItem( 'Happiness Calendar', JSON.stringify( this.state.calendarData ));
+  componentDidUpdate( prevState ) {
+  if ( prevState.calendarSmile !== this.state.calendarSmile ) {
+    localStorage.setItem( 'Life Calendar', JSON.stringify( this.state.calendarSmile ));
   }
 }
 
@@ -54,17 +72,16 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render = {
                 ()=>
-                <Home calendarSmile
-                      status
-                      data
-                      message={this.state} />
+                <Home calendarSmile={this.state.calendarSmile} />
             }
             />
             <Route path='/edition'render = {
                 ()=>
-                <Edition status data message={this.state}
+                <Edition
                          onSubmitHandler={this.onSubmitHandler}
-                         handleChange  = { this.handleChange }
+                         handleChangeDate  = { this.handleChangeDate }
+                         handleChangeStatus  = { this.handleChangeStatus }
+                         handleChangeMessage  = { this.handleChangeMessage }
                         />
             } />
           </Switch>
