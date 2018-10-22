@@ -9,7 +9,7 @@ class Calendar extends Component {
 
         return (
           <div>
-            <ul className='days__face-container'>
+            <ul className='smile-container'>
                 { calendarSmile.map((smileElement,index)=>
                     <DayList date={smileElement.inputdate}
                              status={smileElement.inputstatus}

@@ -10,7 +10,7 @@ class Home extends Component {
       const {calendarSmile}=this.props;
         return (
             <div className="calendar">
-                <Link to="/edition" className="buttonLink">+</Link>
+                <Link to="/edition" className="button link">+</Link>
                 <Calendar calendarSmile={calendarSmile}
                 />
             </div>

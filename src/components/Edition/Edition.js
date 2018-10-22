@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Edition.css';
 
@@ -10,7 +10,6 @@ class Edition extends Component {
               handleChangeMessage,
               onSubmitHandler,
               status} = this.props;
-              console.log(this.props)
         return (
           <div className="edition">
             <form className="form">
@@ -22,14 +21,15 @@ class Edition extends Component {
               </label>
               <input id="date"
                      type="date"
+                     className="input-date"
                      name="date"
                      onChange={ handleChangeDate }/>
-              <div className="status">
               <label name="status"
                      className="label"
                       >
                       Estado
                </label>
+               <div className="status">
                <label htmlFor="happy"
                      name="happy"
                      className="label"
@@ -39,6 +39,7 @@ class Edition extends Component {
                <input id="happy"
                       type="radio"
                       name="happy"
+                      className="input-radio"
                       value=":)"
                       onChange={ handleChangeStatus }
                       />
@@ -56,7 +57,7 @@ class Edition extends Component {
                        />
                 </div>
                 { status === ':)' &&
-                <div>
+                <div className="input-message">
                 <label
                            htmlFor="message"
                            name="message"
@@ -65,26 +66,26 @@ class Edition extends Component {
                            Mensaje
                 </label>
 
-               <input
+               <textarea
+                   rows="5"
+                   cols="28"
                    id="message"
-                   type="text"
-                   name="message"
                    placeholder="¿Por qué es un buen día?"
                    onChange={ handleChangeMessage }
                />
              </div>
            }
 
-             <Link to="/">
+             <Link to="/" className="link button">
              <input type="submit"
-                      className="button button-yes"
+                      className="link button yes"
                       value="Aceptar"
                       onClick={ onSubmitHandler }
                 />
               </Link>
-              <Link to="/">
+              <Link to="/" className="link button">
               <input type="submit"
-                     className="button button-no"
+                     className="link button no"
                      value="Cancel"
 
                 />

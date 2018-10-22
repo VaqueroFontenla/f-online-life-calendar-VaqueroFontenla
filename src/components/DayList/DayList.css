@@ -1,0 +1,39 @@
+.days__face-container {
+  display: flex;
+  flex-direction: column;
+  align-items     : center;
+  justify-content : center;
+}
+
+.days__date {
+  font-family: 'Niramit', sans-serif;
+  font-size: 10px;
+  color: grey;
+  margin: 0;
+}
+.days__face {
+  position: relative;
+  margin:0;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  font-family: 'Niramit', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.7;
+}
+ .days__face-good {
+    background : yellow;
+  }
+
+ .days__face-bad {
+    background : red;
+  }
+
+  .days__message {
+    font-family: 'Niramit', sans-serif;
+    font-size: 8px;
+    color: grey;
+    margin: 0;
+  }

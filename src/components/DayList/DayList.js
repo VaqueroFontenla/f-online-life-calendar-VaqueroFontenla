@@ -8,7 +8,7 @@ class DayList extends Component {
            status,
            message}=this.props;
     return (
-      <li className="days__face">
+      <li className="days__face-container">
        <p className="days__date">{ date }</p>
        <p className={`days__face ${ status === ':)' ? "days__face-good" : "days__face-bad" }`}>
          { status }</p>
