@@ -68,19 +68,24 @@ class Edition extends Component {
                    placeholder="¿Por qué es un buen día?"
                    onChange={ handleChangeMessage }
                />
-               <input type="submit"
+             
+             <Link to="/">
+             <input type="submit"
                       className="button button-yes"
                       value="Aceptar"
                       onClick={ onSubmitHandler }
                 />
-
+              </Link>
+              <Link to="/">
               <input type="submit"
                      className="button button-no"
                      value="Cancel"
+
                 />
+              </Link>
 
             </form>
-          <Link to="/" className="button button-back">Volver</Link>
+
 
           </div>
         );

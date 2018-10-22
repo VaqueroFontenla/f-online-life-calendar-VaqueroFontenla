@@ -11,9 +11,8 @@ class DayList extends Component {
       <li className="days__face">
        <p className="days__date">{ date }</p>
        <p className={`days__face ${ status === ':)' ? "days__face-good" : "days__face-bad" }`}>
-         { status }
+         { status }</p>
        <p className="days__message">{ message }</p>
-       </p>
      </li>
     );
   }
