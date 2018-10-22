@@ -75,7 +75,7 @@ class Edition extends Component {
                />
              </div>
            }
-
+//El boton submitt no regresa a la página principal
              <Link to="/" className="link button">
              <input type="submit"
                       className="link button yes"

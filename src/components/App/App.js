@@ -30,10 +30,16 @@ class App extends Component {
 
 }
 
+//No funciona para la primera fecha
    handleChangeDate(e) {
-   this.setState({ date: e.target.value }, ()=>console.log(this.state.date))
-   }
-
+     for ( const input of this.state.calendarSmile ) {
+      if ( e.target.value === input.inputdate ) {
+        alert( 'Este día ya ha sido editado' );
+      } else {
+        this.setState({ date: e.target.value }, ()=>console.log(this.state.date))
+      }
+     }
+}
   handleChangeStatus (e) {
     this.setState ({
       status: e.target.value,
